@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>leaflet-svg-pattern</title>
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
+  <link rel="stylesheet" href="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+  <script src="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <script src="leaflet-svg-pattern.js"></script>
+</head>
+
+<body>
+  <div id="map" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+  <script>
+    var map = L.map("map", {
+      maxZoom: 20,
+      minZoom: 2,
+      zoom: 17,
+      center: [35.64373, 139.68368],
+      renderer: L.svg.pattern()
+    });
+    L.tileLayer("http://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg", {
+      "attribution": "<a href='http://maps.gsi.go.jp/development/ichiran.html#ort'>写真(地理院タイル)</a>"
+    }).addTo(map);
+    L.circle(map.getCenter(), {
+      radius: 200,
+      pattern: "pattern.png",
+      fillOpacity: 0.8,
+      color: "#fff",
+      weight: 5,
+      opacity: 0.8
+    }).addTo(map);
+    L.marker(map.getCenter()).addTo(map);
+  </script>
+</body>
+
+</html>
