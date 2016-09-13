@@ -20,7 +20,7 @@
       center: [35.64373, 139.68368],
       renderer: L.svg.pattern()
     });
-    L.tileLayer("http://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg", {
+    L.tileLayer("//cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg", {
       "attribution": "<a href='http://maps.gsi.go.jp/development/ichiran.html#ort'>写真(地理院タイル)</a>"
     }).addTo(map);
     L.circle(map.getCenter(), {
